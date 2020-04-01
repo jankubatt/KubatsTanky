@@ -13,8 +13,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
-    - UnityEditor.Tilemaps.GridPaletteBrushes
-    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
@@ -1063,7 +1061,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: 3d3980098bd1e01eeca1a8d748bfeb49
+      Hash: 1a7afc04cc604a4a07271ae0de64ab36
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameRun
@@ -1157,4 +1155,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Plains.unity
   - Assets/Scenes/Hills.unity
   - Assets/Scenes/Desert.unity
-  playerPath: D:/Tech/Game Development/unity/tanki/Tanki/Builds/Kubats Tanky v1.0/Tanki.exe
+  playerPath: D:/Tech/Game Development/unity/tanki/Tanki/Builds/Kubats Tanky v1.1/Tanki.exe

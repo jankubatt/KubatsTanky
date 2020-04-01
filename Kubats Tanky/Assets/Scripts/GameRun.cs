@@ -12,6 +12,7 @@ public class GameRun : MonoBehaviour
     private Vector3 cameraOffset;       //camera offset
     public GameObject playerCamera;     //player camera
     public GameObject mapCamera;        //camera for the whole map
+    public GameObject bulletCamera;        //camera for the whole map
     public GameObject player1;          //player 1
     public GameObject player2;          //player 2
     public SpriteRenderer player1Render;
@@ -45,6 +46,7 @@ public class GameRun : MonoBehaviour
     public GameObject btnHeavyBullet;   //button for heavy bullet
     public GameObject btnKoronaBullet;   //button for heavy bullet
     public GameObject pointsPanel;
+    public GameObject camBorder;
     public Slider strength;             //slider for strength of tanks
     public Slider healthP1Slider;       //bar for health of player 1
     public Slider healthP2Slider;       //bar for health of player 2
@@ -68,6 +70,8 @@ public class GameRun : MonoBehaviour
     {
         cameraOffset = playerCamera.transform.position - currentPlayer.transform.position;  //camera offset calculation
         uiPanel.SetActive(false);   //hide panel on start
+        bulletCamera.SetActive(false);
+        camBorder.SetActive(false);
         strength.value = 20;    //set strength to 20
         healthP1 = 100; //set 100 health
         healthP2 = 100; //set 100 health
@@ -218,24 +222,36 @@ public class GameRun : MonoBehaviour
             GameObject.Find("bullet(Clone)").GetComponent<Bullet>().speed = bulletSpeed; //get the speed of bullet from another script
             playerCamera.SetActive(false);  //disable player camera
             mapCamera.SetActive(true);  //enable map camera
+            bulletCamera.SetActive(true);
+            camBorder.SetActive(true);
             pointsPanel.SetActive(false);
             canFire = false;    //can not fire
+            Vector3 bulletCamPos = new Vector3(GameObject.Find("bullet(Clone)").transform.position.x, GameObject.Find("bullet(Clone)").transform.position.y, -30);
+            bulletCamera.transform.position = bulletCamPos;
         }
         else if (GameObject.Find("bulletHeavy(Clone)")) //same as normal bullet
         {
             GameObject.Find("bulletHeavy(Clone)").GetComponent<Bullet>().speed = bulletSpeed;
             playerCamera.SetActive(false);
             mapCamera.SetActive(true);
+            bulletCamera.SetActive(true);
+            camBorder.SetActive(true);
             canFire = false;
             pointsPanel.SetActive(false);
+            Vector3 bulletCamPos = new Vector3(GameObject.Find("bulletHeavy(Clone)").transform.position.x, GameObject.Find("bulletHeavy(Clone)").transform.position.y, -30);
+            bulletCamera.transform.position = bulletCamPos;
         }
         else if (GameObject.Find("bulletKorona(Clone)")) //same as normal bullet
         {
             GameObject.Find("bulletKorona(Clone)").GetComponent<Bullet>().speed = bulletSpeed;
             playerCamera.SetActive(false);
             mapCamera.SetActive(true);
+            bulletCamera.SetActive(true);
+            camBorder.SetActive(true);
             canFire = false;
             pointsPanel.SetActive(false);
+            Vector3 bulletCamPos = new Vector3(GameObject.Find("bulletKorona(Clone)").transform.position.x, GameObject.Find("bulletKorona(Clone)").transform.position.y, -30);
+            bulletCamera.transform.position = bulletCamPos;
         }
         else //if none of the bullets exist, player can fire and player camera is activated, map camera deactivated
         {
@@ -243,7 +259,18 @@ public class GameRun : MonoBehaviour
             mapCamera.SetActive(false);
             canFire = true;
             pointsPanel.SetActive(true);
+            if (bulletCamera.activeSelf == true)
+            {
+                Invoke("SetBulletCamFalse", 1f);
+            }
+            
         }
+    }
+
+    public void SetBulletCamFalse()
+    {
+        bulletCamera.SetActive(false);
+        camBorder.SetActive(false);
     }
 
     public void ChangeSprite()
