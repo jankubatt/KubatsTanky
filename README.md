@@ -10,3 +10,5 @@ This game was for my school project. Currently I'm studying IT. (1/4 years)
 - Firing system
 - Operating with cameras
 - UI
+
+![MainMenu](/images/tank1.png)
