@@ -11,4 +11,6 @@ This game was for my school project. Currently I'm studying IT. (1/4 years)
 - Operating with cameras
 - UI
 
-![MainMenu](/images/tank1.png)
+![MainMenu](/images/tank1.png) <br>
+![Gameplay](/images/tank2.png) <br>
+![Gameplay](/images/tank3.png)
