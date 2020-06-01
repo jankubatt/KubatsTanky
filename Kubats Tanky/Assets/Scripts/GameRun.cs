@@ -261,7 +261,7 @@ public class GameRun : MonoBehaviour
             pointsPanel.SetActive(true);
             if (bulletCamera.activeSelf == true)
             {
-                Invoke("SetBulletCamFalse", 1f);
+                Invoke("SetBulletCamFalse", 0.25f);
             }
             
         }
